@@ -79,6 +79,7 @@ function Invoices() {
 
     const [catagory, setCatagory] = useState("All")
     const [list, setList] = useState(data);
+    // const [data,setData]=useState([...data1])
 
     const [headings, setHeading] = useState([
         { name: "All", isActive: true },
@@ -87,6 +88,14 @@ function Invoices() {
         { name: "Resolve", isActive: false },
         // { name: "Overdue", isActive: false },
     ])
+
+    function handleResolve(index){
+        const newArr=[...list]
+        newArr[index].status="Resolve"
+        setList(newArr);
+
+        
+    }
 
     function handleActive(i) {
         const newHead = [...headings];
@@ -110,7 +119,7 @@ function Invoices() {
             })
             setList(newArr);
         }
-    }, [catagory])
+    }, [catagory,list])
 
 
     return (
@@ -146,8 +155,8 @@ function Invoices() {
 
 
 
-                    {list.map((e) => {
-                        return <Items data={e} />
+                    {list.map((e,i) => {
+                        return <Items data={e} handleResolve={handleResolve} ind={i} />
                     })}
                 </div>
 

@@ -66,18 +66,22 @@
 }
 
 .patreview{
-    display: inline-block;
-    border: 1px solid black;
-    padding-right: 10px;
-    padding-left: 10px;
+    /* display: inline-block; */
+    /* border: 1px solid black; */
+    /* padding-right: 10px;
+    padding-left: 10px; */
     margin: 0px 2.5px;
-    background-color: white;
+    /* background-color: white; */
     height: 100%;
-    font-weight: bold;
+    /* font-weight: bold; */
    text-align: center;
 
    border-radius: 7px;
-   padding: auto;
+   cursor: pointer;
+   
+}
+.inputCapture{
+    border-radius: 7px;
 }
 .In-Progress{
     background-color: blue;
