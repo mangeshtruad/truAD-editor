@@ -7,8 +7,8 @@ export default function Items(props) {
     <div className={props.data.status} style={{ height: "80%", marginLeft: '5px', borderRadius: "7px", width: "7%", display: "flex", justifyContent: "center", alignItems: "center" }}><span>{props.data.status}</span></div>
     <div>
 
-        <h6 style={{ margin: "0", padding: "0" }}>{props.data.invoiceNo}</h6>
-        <p style={{ margin: "0", padding: "0" }}>{props.data.invoiceDate}</p>
+        <h6 style={{ margin: "0", padding: "0" }}>Ticket ID 1005</h6>
+        <p style={{ margin: "0", padding: "0" }}>Last Update</p>
     </div>
     <div>
 
