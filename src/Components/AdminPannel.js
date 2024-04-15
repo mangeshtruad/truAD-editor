@@ -80,6 +80,20 @@ function Invoices() {
     const [catagory, setCatagory] = useState("All")
     const [list, setList] = useState(data);
     // const [data,setData]=useState([...data1])
+    const object= {
+        status: 'On-Hold',
+        invoiceNo: "Invoice 1003",
+        invoiceDate: "Feb 12 2024",
+        companyName: "TruAd  Pvt. Ltd.",
+        emailId: "qayyum@truad.co",
+        ammount: 128000,
+        lastSeen: "Opened 5 day ago",
+
+    }
+
+    // useEffect(()=>{
+    //     fetch()
+    // },[])
 
     const [headings, setHeading] = useState([
         { name: "All", isActive: true },
