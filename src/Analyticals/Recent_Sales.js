@@ -2,10 +2,10 @@ import React from "react";
 
 export default function RecentSales() {
   return (
-    <section className="section dashboard" style={{backgroundColor:"rgba(234, 231, 231, 0.776)"}}>
+    <section className="section dashboard">
       <div className="col-12">
         <div className="card recent-sales overflow-auto">
-          <div className="card-body">
+          <div className="card-body"  style={{backgroundColor:"rgba(234, 231, 231, 0.776)"}}>
             <h5 className="card-title text-start">Recent Sales</h5>
 
             <div className="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
@@ -182,7 +182,7 @@ export default function RecentSales() {
                 </table>
               </div>
               <div className="datatable-bottom">
-                <div className="datatable-info">Showing 1 to 5 of 5 entries</div>
+                <div className="datatable-info text-end">Showing 1 to 5 of 5 entries</div>
                 <nav className="datatable-pagination">
                   <ul className="datatable-pagination-list"></ul>
                 </nav>
