@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .sidebarContainer {
+    width: 20%;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .headingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(64, 60, 60);
+  }
+  
+  .heading {
+    text-align: center;
+  }
+  
+  .linksContainer {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .linksContainer .links {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .buttonLink {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5em;
+    padding: 2px 20px;
+    width: 70%;
+  }
+  
+  .buttonContainer:hover {
+    background-color: aqua;
+  }
+  
+  .signoutButton {
+    position:'absolute';
+    bottom:'0px';
+    width: 100%;
+    text-align:'center';
+    /* padding-bottom:'40px'; */
+    background-color: aqua;
+  }
+  
+  
+  .active {
+    background-color: aqua; 
+    border-radius: 0;
+  }
+  
+  

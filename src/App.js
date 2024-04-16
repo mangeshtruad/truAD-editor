@@ -1,13 +1,100 @@
-import logo from './logo.svg';
-import './App.css';
-import AdminPannel from './Components/AdminPannel';
-import Analytics from './Analyticals';
+import "./App.css";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { MyContextProvider } from "./MyContext";
+
+import Analyticals from "./Analyticals"
+import AdminPannel from "./Components/AdminPannel.js"
+import Page from "./Page.js";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Page/>,
+    children: [
+      {
+        path: "/adminpanel/",
+        element: <AdminPannel />,
+      },
+      {
+        path: "/analyticals/",
+        element: <Analyticals />,
+      },
+    ]
+  },
+  // {
+  //   path: "/AdminPannel",
+  //   element: <Analyticals />
+  // },
+  
+  // {
+  //   path: "/ConfirmNewPass",
+  //   element: <ConfirmNewPass />
+  // },
+
+  // {
+  //   path: "/dashboard",
+  //   element: <DashBoardContainer />,
+  //   children: [
+  //     {
+  //       path: "/dashboard/",
+  //       element: <Dashhboard />,
+  //     },
+  //     {
+  //       path: "/dashboard/material/",
+  //       element: <MaterialManagment />,
+  //     },
+  //     {
+  //       path: "/dashboard/homepage",
+  //       element: <HomePage />,
+  //     },
+  //     {
+  //       path: "/dashboard/popularpicks/",
+  //       element: <PopularPicks />,
+  //     },
+  //     {
+  //       path: "/dashboard/placepromotion",
+  //       element: <PlacePromotion />,
+  //     },
+  //     {
+  //       path: "/dashboard/datareport/",
+  //       element: <DataReport />,
+  //     },
+
+  //     {
+  //       path: "/dashboard/video",
+  //       element: <VideoClip />,
+  //     },
+  //     {
+  //       path: "/dashboard/actionpage",
+  //       element: <ActionPage />,
+  //       children: [
+  //         {
+
+
+  //         }
+  //       ]
+
+  //     },
+  //     {
+  //       path: "/dashboard/invoices",
+  //       element: <Invoices />,
+  //     },
+  //     {
+  //       path: "/dashboard/raiseticket",
+  //       element: <RaiseTicket />
+  //     }
+
+  //   ],
+  // },
+]);
+
 function App() {
   return (
-    <div className="App">
-      <AdminPannel/>
-      {/* <Analytics/> */}
-    </div>
+    <MyContextProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </MyContextProvider>
   );
 }
 

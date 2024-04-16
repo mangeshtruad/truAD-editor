@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="footer"
+      className="footer text-center"
     >
       <div className="copyright">
         © Copyright{" "}
@@ -14,8 +14,8 @@ export default function Footer() {
         . All Rights Reserved
       </div>
       <div className="credits">
-        Designed by
-        <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by 
+        <a href="#"> TruAD</a>
       </div>
     </footer>
   );

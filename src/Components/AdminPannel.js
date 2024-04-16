@@ -4,101 +4,102 @@ import Items from './Items';
 
 
 
-const data = [
+// const data = [
 
-    {
-        status: 'On-Hold',
-        invoiceNo: "Invoice 1003",
-        invoiceDate: "Feb 12 2024",
-        companyName: "TruAd  Pvt. Ltd.",
-        emailId: "qayyum@truad.co",
-        ammount: 128000,
-        lastSeen: "Opened 5 day ago",
+//     {
+//         status: 'On-Hold',
+//         invoiceNo: "Invoice 1003",
+//         invoiceDate: "Feb 12 2024",
+//         companyName: "TruAd  Pvt. Ltd.",
+//         emailId: "qayyum@truad.co",
+//         ammount: 128000,
+//         lastSeen: "Opened 5 day ago",
 
-    },
-    {
-        status: 'Resolve',
-        invoiceNo: "Invoice 1003",
-        invoiceDate: "Feb 12 2024",
-        companyName: "TruAd  Pvt. Ltd.",
-        emailId: "qayyum@truad.co",
-        ammount: 128000,
-        lastSeen: "Opened 5 day ago",
+//     },
+//     {
+//         status: 'Resolve',
+//         invoiceNo: "Invoice 1003",
+//         invoiceDate: "Feb 12 2024",
+//         companyName: "TruAd  Pvt. Ltd.",
+//         emailId: "qayyum@truad.co",
+//         ammount: 128000,
+//         lastSeen: "Opened 5 day ago",
 
-    },
-    {
-        status: 'In-Progress',
-        invoiceNo: "Invoice 1003",
-        invoiceDate: "Feb 12 2024",
-        companyName: "TruAd  Pvt. Ltd.",
-        emailId: "qayyum@truad.co",
-        ammount: 128000,
-        lastSeen: "Opened 5 day ago",
+//     },
+//     {
+//         status: 'In-Progress',
+//         invoiceNo: "Invoice 1003",
+//         invoiceDate: "Feb 12 2024",
+//         companyName: "TruAd  Pvt. Ltd.",
+//         emailId: "qayyum@truad.co",
+//         ammount: 128000,
+//         lastSeen: "Opened 5 day ago",
 
-    },{
-        status: 'In-Progress',
-        invoiceNo: "Invoice 1003",
-        invoiceDate: "Feb 12 2024",
-        companyName: "TruAd  Pvt. Ltd.",
-        emailId: "qayyum@truad.co",
-        ammount: 128000,
-        lastSeen: "Opened 5 day ago",
+//     },{
+//         status: 'In-Progress',
+//         invoiceNo: "Invoice 1003",
+//         invoiceDate: "Feb 12 2024",
+//         companyName: "TruAd  Pvt. Ltd.",
+//         emailId: "qayyum@truad.co",
+//         ammount: 128000,
+//         lastSeen: "Opened 5 day ago",
 
-    },{
-        status: 'In-Progress',
-        invoiceNo: "Invoice 1003",
-        invoiceDate: "Feb 12 2024",
-        companyName: "TruAd  Pvt. Ltd.",
-        emailId: "qayyum@truad.co",
-        ammount: 128000,
-        lastSeen: "Opened 5 day ago",
+//     },{
+//         status: 'In-Progress',
+//         invoiceNo: "Invoice 1003",
+//         invoiceDate: "Feb 12 2024",
+//         companyName: "TruAd  Pvt. Ltd.",
+//         emailId: "qayyum@truad.co",
+//         ammount: 128000,
+//         lastSeen: "Opened 5 day ago",
 
-    },{
-        status: 'In-Progress',
-        invoiceNo: "Invoice 1003",
-        invoiceDate: "Feb 12 2024",
-        companyName: "TruAd  Pvt. Ltd.",
-        emailId: "qayyum@truad.co",
-        ammount: 128000,
-        lastSeen: "Opened 5 day ago",
+//     },{
+//         status: 'In-Progress',
+//         invoiceNo: "Invoice 1003",
+//         invoiceDate: "Feb 12 2024",
+//         companyName: "TruAd  Pvt. Ltd.",
+//         emailId: "qayyum@truad.co",
+//         ammount: 128000,
+//         lastSeen: "Opened 5 day ago",
 
-    },{
-        status: 'In-Progress',
-        invoiceNo: "Invoice 1003",
-        invoiceDate: "Feb 12 2024",
-        companyName: "TruAd  Pvt. Ltd.",
-        emailId: "qayyum@truad.co",
-        ammount: 128000,
-        lastSeen: "Opened 5 day ago",
+//     },{
+//         status: 'In-Progress',
+//         invoiceNo: "Invoice 1003",
+//         invoiceDate: "Feb 12 2024",
+//         companyName: "TruAd  Pvt. Ltd.",
+//         emailId: "qayyum@truad.co",
+//         ammount: 128000,
+//         lastSeen: "Opened 5 day ago",
 
-    }
-]
+//     }
+// ]
 
 
 function Invoices() {
-
     const [catagory, setCatagory] = useState("All")
-    const [list, setList] = useState(data);
-    // const [data,setData]=useState([...data1])
-    const object= {
-        status: 'On-Hold',
-        invoiceNo: "Invoice 1003",
-        invoiceDate: "Feb 12 2024",
-        companyName: "TruAd  Pvt. Ltd.",
-        emailId: "qayyum@truad.co",
-        ammount: 128000,
-        lastSeen: "Opened 5 day ago",
+    const [list, setList] = useState([]);
+    const [data,setData]=useState([])
+    // const object= {
+    //     status: 'On-Hold',
+    //     invoiceNo: "Invoice 1003",
+    //     invoiceDate: "Feb 12 2024",
+    //     companyName: "TruAd  Pvt. Ltd.",
+    //     emailId: "qayyum@truad.co",
+    //     ammount: 128000,
+    //     lastSeen: "Opened 5 day ago",
 
-    }
+    // }
 
-    // useEffect(()=>{
-    //     fetch()
-    // },[])
+    useEffect(()=>{
+        fetch("http://localhost:4000/api/ticket/all").then(data=>data.json())
+        .then(({tickets})=>{setData(tickets)
+        setList(tickets)});
+    },[])
 
     const [headings, setHeading] = useState([
         { name: "All", isActive: true },
-        { name: "In-Progress", isActive: false },
-        { name: "On-Hold", isActive: false },
+        { name: "In Progress", isActive: false },
+        { name: "On Hold", isActive: false },
         { name: "Resolve", isActive: false },
         // { name: "Overdue", isActive: false },
     ])
@@ -135,14 +136,15 @@ function Invoices() {
         }
     }, [catagory,list])
 
-
     return (
-        <div style={{ width: "100%", flexGrow: "1", backgroundColor: "#6c757d" }}>
+        
+        <div style={{ width: "100%", flexGrow: "1", backgroundColor: "#6c757d", height:"100vh", overflowY:"auto" }}>
 
             <h1 style={{ textAlign: "center", backgroundColor: '#212529', margin: '10px', borderRadius: "7px", boxShadow: "rgba(0, 0, 0, 0.4) 0px 3px 8px", color: "white" }}>Tickets</h1>
 
             <div style={{ display: "flex", margin: "10px", justifyContent: "space-between", backgroundColor: "#343a40", alignItems: 'center', boxShadow: "rgba(0, 0, 0, 0.4) 0px 3px 8px", borderRadius: "7px" }}>
                 <div className='ch1p'>
+                    {console.log("testing",list)}
 
                     {headings.map((e, i) => {
                         return <div key={i} className='ch1' style={e.isActive ? { backgroundColor: "blue", color: "white" } : { backgroundColor: "white" }} onClick={() => {
@@ -170,7 +172,10 @@ function Invoices() {
 
 
                     {list.map((e,i) => {
-                        return <Items data={e} handleResolve={handleResolve} ind={i} />
+                        return <Items data={e} 
+                        handleResolve={handleResolve} 
+                        ind={i}
+                         />
                     })}
                 </div>
 

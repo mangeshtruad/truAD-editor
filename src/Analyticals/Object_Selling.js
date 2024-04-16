@@ -1,5 +1,47 @@
 import React from "react";
 
+const list=[
+  {
+      file: "https://imgs.search.brave.com/5YfDZ_BrNmW8ShDojzoMD8HgsVQ7SLM2tRWHWNbqQEE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFFMW44VCtJbkwu/anBn",
+      name: "Lenova i5",
+      group: "Lenova",
+      size: "16:4",
+      sold:'22',
+      price:'39',
+    },
+    {
+      file: "https://imgs.search.brave.com/5YfDZ_BrNmW8ShDojzoMD8HgsVQ7SLM2tRWHWNbqQEE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFFMW44VCtJbkwu/anBn",
+      name: "Lenova i3",
+      group: "Lenova",
+      size: "16:9",
+      sold:'21',
+      price:'29',
+    },
+    {
+      file: "https://imgs.search.brave.com/5YfDZ_BrNmW8ShDojzoMD8HgsVQ7SLM2tRWHWNbqQEE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFFMW44VCtJbkwu/anBn",
+      name: "Lenova i7",
+      group: "Lenova",
+      size: "16:0",
+      sold:'12',
+      price:'50',
+    },
+    {
+      file: "https://imgs.search.brave.com/rF4rlcGROPpsgZSDqF7idtQ-eyvLK4E8rdpdt_bxpbI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTI1/NTcwMzQ4Mi9waG90/by9hcHBsZS1tYWNi/b29rLXByby0xNS1y/ZXRpbmEtb24tdGFi/bGUuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPWswVFA0OHFk/bzVwMGlCMzMwNEh1/S1cwVWFkOEQteWlF/R2tuczhYOXJUelU9",
+      name: "MacBook air i5",
+      group: "apple",
+      size: "16:0",
+      sold:'44',
+      price:'29',
+    },
+    {
+      file: "https://imgs.search.brave.com/rF4rlcGROPpsgZSDqF7idtQ-eyvLK4E8rdpdt_bxpbI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTI1/NTcwMzQ4Mi9waG90/by9hcHBsZS1tYWNi/b29rLXByby0xNS1y/ZXRpbmEtb24tdGFi/bGUuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPWswVFA0OHFk/bzVwMGlCMzMwNEh1/S1cwVWFkOEQteWlF/R2tuczhYOXJUelU9",
+      name: "MacBook air M1",
+      group: "apple",
+      size: "12:6",
+      sold:'24',
+      price:'34',
+    },
+]
 export default function ObjectSelling() {
   return (
     <section className="section dashboard">
@@ -10,7 +52,7 @@ export default function ObjectSelling() {
             <h5 className="card-title text-start">Top Object Selling</h5>
 
             <table className="table table-borderless" 
-            style={{ '--bs-table-accent-bg': '"rgba(0, 0, 0, 0.075)"'}}
+            style={{'--bs-table-bg':"none"}}
             >
               <thead>
                 <tr>
@@ -22,81 +64,22 @@ export default function ObjectSelling() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">
-                    <a href="#">
-                      <img src="assets/img/product-1.jpg" alt="this is image" />
-                    </a>
-                  </th>
-                  <td>
-                    <a href="#" className="text-primary fw-bold">
-                      Ut inventore ipsa voluptas nulla
-                    </a>
-                  </td>
-                  <td>$64</td>
-                  <td className="fw-bold">124</td>
-                  <td>10 x 23</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <a href="#">
-                      <img src="assets/img/product-2.jpg" alt="" />
-                    </a>
-                  </th>
-                  <td>
-                    <a href="#" className="text-primary fw-bold">
-                      Exercitationem similique doloremque
-                    </a>
-                  </td>
-                  <td>$46</td>
-                  <td className="fw-bold">98</td>
-                  <td>12 x 20</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <a href="#">
-                      <img src="assets/img/product-3.jpg" alt="" />
-                    </a>
-                  </th>
-                  <td>
-                    <a href="#" className="text-primary fw-bold">
-                      Doloribus nisi exercitationem
-                    </a>
-                  </td>
-                  <td>$59</td>
-                  <td className="fw-bold">74</td>
-                  <td>24 x 20</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <a href="#">
-                      <img src="assets/img/product-4.jpg" alt="" />
-                    </a>
-                  </th>
-                  <td>
-                    <a href="#" className="text-primary fw-bold">
-                      Officiis quaerat sint rerum error
-                    </a>
-                  </td>
-                  <td>$32</td>
-                  <td className="fw-bold">63</td>
-                  <td>10 x 15</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <a href="#">
-                      <img src="assets/img/product-5.jpg" alt="" />
-                    </a>
-                  </th>
-                  <td>
-                    <a href="#" className="text-primary fw-bold">
-                      Sit unde debitis delectus repellendus
-                    </a>
-                  </td>
-                  <td>$79</td>
-                  <td className="fw-bold">41</td>
-                  <td>23 x 13</td>
-                </tr>
+                {list.map((el,index)=>{
+                  return(
+                   <tr key={index}>
+                   <th scope="row">
+                       <img src={el.file} style={{width:"3rem"}} alt=""/>
+                     
+                   </th>
+                   <td>
+                     {el.name}
+                   </td>
+                   <td>{el.price}</td>
+                   <td className="fw-bold">{el.sold}</td>
+                   <td>{el.size}</td>
+                 </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>
