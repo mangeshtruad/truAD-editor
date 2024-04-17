@@ -44,10 +44,17 @@ export default function SideBar({ removeCookie, navigate }) {
         height: "100vh",
         position: "relative",
         transition: "width 0.5s ease",
-        
       }}
     >
-      <Toolbar sx={{ background: "black", width: "100%", display: "flex", justifyContent: "center" ,position:"relative" }}>
+      <Toolbar
+        sx={{
+          background: "black",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          position: "relative",
+        }}
+      >
         <img
           src="https://www.truad.co/wp-content/uploads/2023/11/logo_transparent_1-150x150.png"
           style={{
@@ -59,7 +66,6 @@ export default function SideBar({ removeCookie, navigate }) {
           }}
           alt=""
         />
-        
       </Toolbar>
       {/* <div style={{ display: "flex", justifyContent: "center" }}>
         <div onClick={() => setCollapsed(!collapsed)} style={{ width: "100%" ,textAlign:"center",padding:"10px" }}>
@@ -76,7 +82,6 @@ export default function SideBar({ removeCookie, navigate }) {
               fontWeight: "bold",
               display: "flex",
               justifyContent: "center",
-              
             }}
             key={i}
             onClick={() => {
@@ -88,11 +93,11 @@ export default function SideBar({ removeCookie, navigate }) {
               style={
                 e.isActive
                   ? {
-                    backgroundColor: "red",
-                    border: "1px solid black",
-                    borderRadius: "5px",
-                    width: "80%",
-                  }
+                      backgroundColor: "red",
+                      border: "1px solid black",
+                      borderRadius: "5px",
+                      width: "80%",
+                    }
                   : { width: "80%" }
               }
             >
@@ -105,10 +110,10 @@ export default function SideBar({ removeCookie, navigate }) {
                   style={
                     collapsed
                       ? {
-                        display: "flex",
-                        justifyContent: "center",
-                        width: "100%",
-                      }
+                          display: "flex",
+                          justifyContent: "center",
+                          width: "100%",
+                        }
                       : {}
                   }
                 >

@@ -2,10 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer
-      id="footer"
-      className="footer text-center"
-    >
+    <footer id="footer" className="footer text-center">
       <div className="copyright">
         © Copyright{" "}
         <strong>
@@ -14,7 +11,7 @@ export default function Footer() {
         . All Rights Reserved
       </div>
       <div className="credits">
-        Designed by 
+        Designed by
         <a href="#"> TruAD</a>
       </div>
     </footer>
