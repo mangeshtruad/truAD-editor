@@ -7,6 +7,7 @@ import { MyContextProvider } from "./MyContext";
 import Analyticals from "./Analyticals"
 import AdminPannel from "./Components/AdminPannel.js"
 import Page from "./Page.js";
+import Editer from "./Editer"
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/analyticals/",
         element: <Analyticals />,
+      },
+      {
+        path: "/editer/",
+        element: <Editer/>,
       },
     ]
   },
