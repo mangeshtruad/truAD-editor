@@ -10,7 +10,7 @@ export default function Page() {
 
   useEffect(() => {
     if (!cookies.user) {
-      navigate("/");
+      navigate("/adminpanel/");
     }
     // removeCookie("user", {path:'/'})
   }, [cookies]);
@@ -24,11 +24,6 @@ export default function Page() {
       <Grid item xs={10} sx={{ height: "100vh", overflowY: "auto" }}>
         <Outlet />
       </Grid>
-
-      {/* <SideBar removeCookie={removeCookie} navigate={navigate} /> */}
-      {/* <Outlet /> */}
-
-      {/* <div style={{ position: "fixed", bottom: "30px", right: "10px", borderRadius: "10px", width: "20vw" }} ><ChatBox></ChatBox></div> */}
     </Grid>
   );
 }

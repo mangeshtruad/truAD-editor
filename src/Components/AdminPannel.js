@@ -2,90 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./admin.css";
 import Items from "./Items";
 
-// const data = [
-
-//     {
-//         status: 'On-Hold',
-//         invoiceNo: "Invoice 1003",
-//         invoiceDate: "Feb 12 2024",
-//         companyName: "TruAd  Pvt. Ltd.",
-//         emailId: "qayyum@truad.co",
-//         ammount: 128000,
-//         lastSeen: "Opened 5 day ago",
-
-//     },
-//     {
-//         status: 'Resolve',
-//         invoiceNo: "Invoice 1003",
-//         invoiceDate: "Feb 12 2024",
-//         companyName: "TruAd  Pvt. Ltd.",
-//         emailId: "qayyum@truad.co",
-//         ammount: 128000,
-//         lastSeen: "Opened 5 day ago",
-
-//     },
-//     {
-//         status: 'In-Progress',
-//         invoiceNo: "Invoice 1003",
-//         invoiceDate: "Feb 12 2024",
-//         companyName: "TruAd  Pvt. Ltd.",
-//         emailId: "qayyum@truad.co",
-//         ammount: 128000,
-//         lastSeen: "Opened 5 day ago",
-
-//     },{
-//         status: 'In-Progress',
-//         invoiceNo: "Invoice 1003",
-//         invoiceDate: "Feb 12 2024",
-//         companyName: "TruAd  Pvt. Ltd.",
-//         emailId: "qayyum@truad.co",
-//         ammount: 128000,
-//         lastSeen: "Opened 5 day ago",
-
-//     },{
-//         status: 'In-Progress',
-//         invoiceNo: "Invoice 1003",
-//         invoiceDate: "Feb 12 2024",
-//         companyName: "TruAd  Pvt. Ltd.",
-//         emailId: "qayyum@truad.co",
-//         ammount: 128000,
-//         lastSeen: "Opened 5 day ago",
-
-//     },{
-//         status: 'In-Progress',
-//         invoiceNo: "Invoice 1003",
-//         invoiceDate: "Feb 12 2024",
-//         companyName: "TruAd  Pvt. Ltd.",
-//         emailId: "qayyum@truad.co",
-//         ammount: 128000,
-//         lastSeen: "Opened 5 day ago",
-
-//     },{
-//         status: 'In-Progress',
-//         invoiceNo: "Invoice 1003",
-//         invoiceDate: "Feb 12 2024",
-//         companyName: "TruAd  Pvt. Ltd.",
-//         emailId: "qayyum@truad.co",
-//         ammount: 128000,
-//         lastSeen: "Opened 5 day ago",
-
-//     }
-// ]
 
 function Invoices() {
   const [catagory, setCatagory] = useState("All");
   const [list, setList] = useState([]);
   const [data, setData] = useState([]);
-  // const object= {
-  //     status: 'On-Hold',
-  //     invoiceNo: "Invoice 1003",
-  //     invoiceDate: "Feb 12 2024",
-  //     companyName: "TruAd  Pvt. Ltd.",
-  //     emailId: "qayyum@truad.co",
-  //     ammount: 128000,
-  //     lastSeen: "Opened 5 day ago",
-
-  // }
 
   useEffect(() => {
     fetch("https://truad-dashboard-backend.onrender.com/api/ticket/all")
@@ -101,7 +22,6 @@ function Invoices() {
     { name: "In Progress", isActive: false },
     { name: "On Hold", isActive: false },
     { name: "Resolve", isActive: false },
-    // { name: "Overdue", isActive: false },
   ]);
 
   function handleResolve(index) {

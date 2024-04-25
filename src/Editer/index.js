@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,44 +13,78 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { styled } from '@mui/material/styles';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-const VisuallyHiddenInput = styled('input')({
-  clip: 'rect(0 0 0 0)',
-  clipPath: 'inset(50%)',
+import { styled } from "@mui/material/styles";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
   height: 1,
-  overflow: 'hidden',
-  position: 'absolute',
+  overflow: "hidden",
+  position: "absolute",
   bottom: 0,
   left: 0,
-  whiteSpace: 'nowrap',
+  whiteSpace: "nowrap",
   width: 1,
 });
 
-export default function index() {
-  const handleFileChange = (event) => {
+export default function Index() {
+  const [Clip, setClip] = useState([]);
+
+  const handleFileChange = (event, id) => {
     const file = event.target.files[0];
     if (!file) {
       return;
     }
-
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append("blendFiles", file);
     // Example API endpoint
-    const url = 'http://localhost:4000/upload';
+    // const url = `http://localhost:4000/upload/${id}`;
+    const url = `https://truad-dashboard-backend.onrender.com/upload/${id}`;
 
     // Fetch API to send the file to the server
     fetch(url, {
-      method: 'POST',
+      method: "PUT",
       body: formData,
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // Here, check the content type of the response
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+          return response.json(); // If JSON, parse it and proceed
+        } else {
+          return response.text(); // If not JSON, return text
+        }
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(
+        "https://truad-dashboard-backend.onrender.com/edits"
+        // "http://localhost:4000/edits"
+      );
+      const clipData = await response.json();
+      setClip(clipData.existingItem);
+      console.log(clipData.existingItem
+      );
+    }
+
+    fetchData();
+  }, []); // Dependencies array is empty, this effect runs only once after the initial render.
+
+  const extractBaseName = (path) => {
+    // This regular expression matches the last segment before the last period (excluding any slashes), capturing the base name of the file
+    const regex = /([^\/]+)(?=\.\w+$)/;
+    const match = path.match(regex);
+    return match ? match[1] : null; // match[1] because match[0] will contain the entire match, and match[1] will contain the first captured group
   };
 
   return (
@@ -73,7 +107,7 @@ export default function index() {
           >
             <InputLabel
               id="demo-simple-select-standard-label"
-              sx={{ color: "white" }}
+              sx={{ color: "white", "&.Mui-focused": { color: "#343a40" } }}
             >
               Time
             </InputLabel>
@@ -99,19 +133,20 @@ export default function index() {
         spacing={2}
         useFlexGap
         flexWrap="wrap"
-        justifyContent="center"
+        justifyContent=""
         borderRadius={2}
         sx={{
           backgroundColor: "rgb(52, 58, 64)",
           padding: "1rem",
+          justifyContent: "center",
         }}
       >
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((el) => {
+        {Clip.map(({ _id, name, location }) => {
+          const clipname = extractBaseName(name);
           return (
             <Card
-              key={el}
+              key={_id}
               sx={{
-                maxWidth: "100%",
                 borderRadius: "10px",
                 backgroundColor: "#6c757d",
                 color: "white",
@@ -119,27 +154,33 @@ export default function index() {
             >
               <CardMedia
                 component="video"
-                sx={{ height: 160 }}
-                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" // Path to your video file
-                title="green iguana"
+                sx={{ height: 140 }}
+                src={location.split("?")[0]}
+                title={clipname}
                 muted
                 controls
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Lizard
+                  {clipname}
                 </Typography>
                 <Typography
                   variant="body2"
-                  //   color="text.secondary"
                 >
                   2.30 min
                 </Typography>
               </CardContent>
               <CardActions>
-                {/* <Button variant="contained" size="small">
+                <Button
+                  variant="contained"
+                  size="small"
+                  component="a"
+                  target="_blank"
+                  href={location}
+                  download={clipname}
+                >
                   Download
-                </Button> */}
+                </Button>
                 <Button
                   component="label"
                   role={undefined}
@@ -149,7 +190,10 @@ export default function index() {
                   size="small"
                 >
                   Upload file
-                  <VisuallyHiddenInput type="file" onChange={handleFileChange} />
+                  <VisuallyHiddenInput
+                    type="file"
+                    onChange={(e)=>handleFileChange(e, _id)}
+                  />
                 </Button>
               </CardActions>
             </Card>
