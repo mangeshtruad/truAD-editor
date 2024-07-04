@@ -22,7 +22,7 @@ $ npm start
 
 ## Demo
 
-###Editor
+### Editor
 
 The Editor page shows the videos that have been sent for processing. Under each video, there are two buttons, one for downloading the video and the other is an input for uploading the relevant Blender file.
 
